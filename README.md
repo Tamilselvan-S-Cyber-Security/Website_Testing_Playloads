@@ -1,6 +1,5 @@
-
 <p align="center"> 
-<img src="logo.jpeg">
+  <img src="logo.jpeg" style="width:120px; height:auto;">
 </p>
 
 # Website_Testing_Playloads
