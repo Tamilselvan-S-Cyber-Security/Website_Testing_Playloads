@@ -3755,9 +3755,12 @@ Lodash - Command Execution
 
 {{x=Object}}{{w=a=new x}}{{w.type="pipe"}}{{w.readable=1}}{{w.writable=1}}{{a.file="/bin/sh"}}{{a.args=["/b
 ```
-## Command Injection Payload List
-## What is OS command injection?
+## Command Injection Payload 
 
+## What is OS command injection?
+<p align="center"> 
+<img src="os-command-injection.svg">
+</p>
 OS command Injection is a critical vulnerability that allows attackers to gain complete control over an affected web site and the underlying web server.
 
 OS command injection vulnerabilities arise when an application incorporates user data into an operating system command that it executes. An attacker can manipulate the data to cause their own commands to run. This allows the attacker to carry out any action that the application itself can carry out, including reading or modifying all of its data and performing privileged actions.
