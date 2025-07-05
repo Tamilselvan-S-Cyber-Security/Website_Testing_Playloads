@@ -4330,3 +4330,187 @@ $(`whoami`)
   🚫 <strong>Access is restricted:</strong> Only authorized <strong>CyberWolf Team</strong> members are allowed to use this repository.<br><br>
   🛡️ Use responsibly. Unauthorized use may violate cybersecurity laws.
 </p>
+
+
+# 📱 Termux Tools and Programming Setup (Basic to Advanced)
+
+---
+
+## 🔧 Basic Termux Commands
+
+```bash
+pkg update
+pkg upgrade
+termux-setup-storage
+clear
+exit
+```
+
+## 📁 File & Directory Management
+
+```
+ls              # List files
+ls -a           # List hidden files
+cd <dir>        # Change directory
+cd              # Back to previous
+cd $HOME        # Go to home
+mkdir <name>    # Create directory
+touch <file>    # Create empty file
+rm <file>       # Remove file
+rm -rf <dir>    # Remove directory
+cp <src> <dst>  # Copy file/folder
+mv <src> <dst>  # Move/Rename
+pwd             # Show current path
+```
+## ✍️ Text Editors
+```
+pkg install nano
+nano <file>
+
+pkg install vim
+vim <file>
+
+cat <file>      # View file content
+```
+
+## 🌐 Networking Tools
+```
+pkg install curl
+curl https://example.com
+
+pkg install wget
+wget https://example.com/file.txt
+
+pkg install nmap
+nmap <target_ip>
+
+ifconfig        # Network info
+ping <host>     # Ping host
+```
+## ⚙️ System & Process Management
+```
+top             # CPU/Memory usage
+ps              # Running processes
+kill <PID>      # Kill process
+uname -a        # System info
+uptime          # Uptime info
+free            # Memory info
+du              # Disk usage
+```
+
+## 📦 Package Management
+```
+pkg update
+pkg upgrade
+
+pkg install <package_name>
+pkg uninstall <package_name>
+pkg search <keyword>
+pkg list-all
+pkg list-installed
+pkg list-upgrades
+
+```
+## 🐍 Python Setup in Termux
+```
+pkg install python
+
+```
+## 📦 Python Package Installer (pip)
+```
+pip install requests
+pip install flask
+pip install numpy
+pip install pandas
+pip install opencv-python
+```
+
+## ▶️ Run Python
+
+```
+python script.py
+```
+
+## ☕ Java Setup in Termux
+
+
+**📥 Install OpenJDK**
+```
+bash
+Copy
+Edit
+pkg install openjdk-17
+```
+**📦 Compile and Run Java**
+```
+bash
+Copy
+Edit
+javac Hello.java
+java Hello
+```
+## 💻 Programming Tools
+**🧰 Git**
+```
+pkg install git
+git clone <repo_url>
+```
+
+## 🐘 PHP
+```
+pkg install php
+php file.php
+```
+## 🔧 Node.js
+
+```
+pkg install nodejs
+node file.js
+```
+
+## 💾 MySQL/SQL (MariaDB)
+```
+pkg install mariadb
+mysql -u root
+```
+
+## 🔒 Ethical Hacking Tools (Advanced)
+**Install hydra**
+```
+pkg install hydra
+
+```
+**Install sqlmap**
+```
+pkg install git
+git clone https://github.com/sqlmapproject/sqlmap.git
+cd sqlmap
+python sqlmap.py
+
+```
+**Install nmap**
+```
+pkg install nmap
+
+```
+**Install metasploit (Long Process)**
+```
+pkg install unstable-repo
+pkg install metasploit
+```
+
+**📚 Useful Commands**
+```
+history         # Show command history
+termux-info     # Device/system info
+whoami          # Current user
+date            # Show date/time
+cal             # Show calendar
+```
+
+**🎯 Recommended Setup (One Command)**
+```
+pkg update && pkg upgrade -y && \
+pkg install python openjdk-17 git curl wget nano vim nmap hydra php nodejs mariadb -y
+```
+
