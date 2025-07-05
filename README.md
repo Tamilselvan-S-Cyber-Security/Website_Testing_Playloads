@@ -4508,7 +4508,7 @@ date            # Show date/time
 cal             # Show calendar
 ```
 
-**🎯 Recommended Setup (One Command)**
+## 🎯 Recommended Setup (One Command)**
 ```
 pkg update && pkg upgrade -y && \
 pkg install python openjdk-17 git curl wget nano vim nmap hydra php nodejs mariadb -y
