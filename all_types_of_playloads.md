@@ -1265,4 +1265,18 @@ xxe_payloads = [
         # Test parameters that commonly accept multiple values
         hpp_params = ['id', 'user', 'search', 'q', 'page', 'sort', 'filter', 'status', 'type', 'category', 'tag', 'label', 'group', 'role', 'permission', 'access', 'level', 'priority', 'severity', 'risk', 'threat', 'vulnerability', 'exploit', 'attack', 'payload', 'vector', 'method', 'technique', 'tactic', 'procedure', 'step', 'action', 'operation', 'function', 'feature', 'option', 'setting', 'config', 'configuration', 'parameter', 'argument', 'input', 'output', 'result', 'response', 'request', 'data', 'content', 'body', 'header', 'cookie', 'session', 'token', 'key', 'secret', 'password', 'credential', 'authentication', 'authorization', 'identity', 'profile', 'account', 'user', 'admin', 'moderator', 'editor', 'author', 'contributor', 'member', 'guest', 'visitor', 'anonymous', 'public', 'private', 'secret', 'hidden', 'visible', 'shown', 'displayed', 'rendered', 'generated', 'created', 'built', 'constructed', 'assembled', 'composed', 'formed', 'made', 'produced', 'developed', 'written', 'coded', 'programmed', 'scripted', 'automated', 'manual', 'automatic', 'dynamic', 'static', 'real-time', 'live', 'interactive', 'responsive', 'adaptive', 'flexible', 'scalable', 'modular', 'component-based', 'object-oriented', 'functional', 'procedural', 'declarative', 'imperative', 'event-driven', 'message-driven', 'service-oriented', 'microservices', 'monolithic', 'distributed', 'centralized', 'decentralized', 'peer-to-peer', 'client-server', 'three-tier', 'n-tier', 'layered', 'tiered']
 ```
+### Project Structure
 
+```
+Cyber-Wolf-Hunter/
+├── cyber_wolf_hunter/
+│   ├── __init__.py          # Main package interface
+│   ├── core.py              # Core WolfHunter class
+│   ├── scanners.py          # Vulnerability scanner methods
+│   ├── reporter.py          # HTML report generation
+│   └── templates/           # HTML report templates
+├── examples/                 # Usage examples
+├── tests/                   # Test suite
+├── docs/                    # Documentation
+└── setup.py                 # Package configuration
+```
