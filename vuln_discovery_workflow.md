@@ -191,36 +191,25 @@ This document outlines a comprehensive workflow for discovering, assessing, and 
 
 ## Decision Points & Flowchart Logic
 
-```
-Start
-  ↓
-Planning & Preparation
-  ↓
-Information Gathering
-  ↓
-Vulnerability Assessment
-  ↓
-Vulnerabilities Found? 
-  ├─ No → Continue Monitoring
-  └─ Yes ↓
-Vulnerability Validation
-  ↓
-Critical/High Risk?
-  ├─ Yes → Immediate Escalation
-  └─ No ↓
-Risk Scoring & Prioritization
-  ↓
-Documentation & Reporting
-  ↓
-Remediation Tracking
-  ↓
-Fix Verified?
-  ├─ No → Return to Remediation
-  └─ Yes ↓
-Continuous Monitoring
-  ↓
-End/Repeat Cycle
-```
+```mermaid
+flowchart TD
+    A[Start] --> B[Planning & Preparation]
+    B --> C[Information Gathering]
+    C --> D[Vulnerability Assessment]
+    D --> E{Vulnerabilities Found?}
+    E -->|No| F[Continue Monitoring]
+    E -->|Yes| G[Vulnerability Validation]
+    G --> H{Critical/High Risk?}
+    H -->|Yes| I[Immediate Escalation]
+    H -->|No| J[Risk Scoring & Prioritization]
+    I --> K[Documentation & Reporting]
+    J --> K[Documentation & Reporting]
+    K --> L[Remediation Tracking]
+    L --> M{Fix Verified?}
+    M -->|No| L
+    M -->|Yes| N[Continuous Monitoring]
+    N --> O[End/Repeat Cycle]
+
 
 ## Key Stakeholders
 
